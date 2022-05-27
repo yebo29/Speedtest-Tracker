@@ -2,6 +2,10 @@
 
 [![Docker pulls](https://img.shields.io/docker/pulls/henrywhitaker3/speedtest-tracker?style=flat-square)](https://hub.docker.com/r/henrywhitaker3/speedtest-tracker) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/henrywhitaker3/Speedtest-Tracker/Stable?label=master&logo=github&style=flat-square)](https://github.com/henrywhitaker3/Speedtest-Tracker/actions) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/henrywhitaker3/Speedtest-Tracker/Dev?label=dev&logo=github&style=flat-square)](https://github.com/henrywhitaker3/Speedtest-Tracker/actions) [![last_commit](https://img.shields.io/github/last-commit/henrywhitaker3/Speedtest-Tracker?style=flat-square)](https://github.com/henrywhitaker3/Speedtest-Tracker/commits) [![issues](https://img.shields.io/github/issues/henrywhitaker3/Speedtest-Tracker?style=flat-square)](https://github.com/henrywhitaker3/Speedtest-Tracker/issues) [![commit_freq](https://img.shields.io/github/commit-activity/m/henrywhitaker3/Speedtest-Tracker?style=flat-square)](https://github.com/henrywhitaker3/Speedtest-Tracker/commits) ![version](https://img.shields.io/badge/version-v1.12.0-success?style=flat-square) [![license](https://img.shields.io/github/license/henrywhitaker3/Speedtest-Tracker?style=flat-square)](https://github.com/henrywhitaker3/Speedtest-Tracker/blob/master/LICENSE)
 
+---
+**This is a fork of [Henry's excellent work](https://github.com/henrywhitaker3/Speedtest-Tracker)**
+---
+
 This program runs a speedtest check every hour and graphs the results. The back-end is written in [Laravel](https://laravel.com/) and the front-end uses [React](https://reactjs.org/). It uses [Ookla's Speedtest cli](https://www.speedtest.net/apps/cli) to get the data and uses [Chart.js](https://www.chartjs.org/) to plot the results.
 
 A demo site is available [here](https://speedtest.henrywhitaker.com).
@@ -28,17 +32,17 @@ docker create \
       -v /path/to/data:/config \
       -e OOKLA_EULA_GDPR=true \
       --restart unless-stopped \
-      henrywhitaker3/speedtest-tracker
+      yebo29/speedtest-tracker
 ```
 
 ### Docker compose
 
 ```yml
-version: '3.3'
+version: '3.4'
 services:
     speedtest:
         container_name: speedtest
-        image: henrywhitaker3/speedtest-tracker
+        image: yebo29/speedtest-tracker
         ports:
             - 8765:80
         volumes:
@@ -103,14 +107,14 @@ To get the base image, you have 2 options:
 
 ### Pre-built Image
 
-Run `docker pull henrywhitaker3/speedtest-tracker`
+Run `docker pull yebo29/speedtest-tracker`
 
 ### Dockerfile
 
-Clone the required files from the github repo [here](https://github.com/henrywhitaker3/Speedtest-Tracker/tree/docker) making sure to use the `docker` branch of the repo.
+Clone the required files from the github repo [here](https://github.com/yebo29/Speedtest-Tracker/tree/docker) making sure to use the `docker` branch of the repo.
 
 Build the image from the docker file by running (within the cloned git repo):
 
 ```bash
-docker build . -f Dockerfile --tag=henrywhitaker3/speedtest-tracker:<tag>
+docker build . -f Dockerfile --tag=yebo29/speedtest-tracker:<tag>
 ```
