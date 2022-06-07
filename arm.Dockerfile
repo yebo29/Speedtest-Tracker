@@ -1,5 +1,5 @@
 FROM linuxserver/nginx:arm32v7-latest
-LABEL maintainer=henrywhitaker3@outlook.com
+LABEL maintainer=yebo29@airlensmedia.com
 
 ENV arch='arm'
 
